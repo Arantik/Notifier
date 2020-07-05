@@ -20,7 +20,7 @@ allprojects {
 In build.gradle(app):
 
 ```bash
-implementation 'com.google.android.material:material:1.1.0'
+implementation 'com.github.Arantik:Notifier:1.0.0'
 ```
 
 ## Usage
