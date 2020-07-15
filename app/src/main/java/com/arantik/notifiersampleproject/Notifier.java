@@ -1,5 +1,6 @@
 package com.arantik.notifiersampleproject;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Handler;
@@ -178,6 +179,10 @@ public final class Notifier
         {
             // check for arguments validation:
             if (notifier.context == null)
+            {
+                throw new IllegalArgumentException("Context is null.");
+            }
+            if (((Activity) notifier.context).isFinishing())
             {
                 throw new IllegalArgumentException("Context is null.");
             }
