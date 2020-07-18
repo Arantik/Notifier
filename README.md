@@ -27,20 +27,20 @@ implementation 'com.github.Arantik:Notifier:1.0.0'
 ### Maven
 
 ```bash
-	<repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
+<repositories>
+	<repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+	</repository>
+</repositories>
 ```
 
 ```bash
-	<dependency>
-	    <groupId>com.github.Arantik</groupId>
-	    <artifactId>Notifier</artifactId>
-	    <version>1.0.2</version>
-	</dependency>
+<dependency>
+	<groupId>com.github.Arantik</groupId>
+	<artifactId>Notifier</artifactId>
+	<version>1.0.2</version>
+</dependency>
 ```
 
 ## Usage
