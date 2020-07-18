@@ -8,6 +8,8 @@ import android.view.Gravity;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.arantik.notifier.Notifier;
+
 public class MainActivity extends AppCompatActivity
 {
     private Typeface font;
