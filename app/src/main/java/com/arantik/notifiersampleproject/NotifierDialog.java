@@ -240,6 +240,7 @@ public class NotifierDialog extends Dialog
         }
 
         mainLayout.setBackground(shape);
+
     }
 
     // set dialog window properties:
