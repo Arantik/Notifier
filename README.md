@@ -26,7 +26,7 @@ implementation 'com.github.Arantik:Notifier:1.0.0'
 ```
 ### Maven
 
-```bash
+```xml
 <repositories>
 	<repository>
 		<id>jitpack.io</id>
@@ -35,7 +35,7 @@ implementation 'com.github.Arantik:Notifier:1.0.0'
 </repositories>
 ```
 
-```bash
+```xml
 <dependency>
 	<groupId>com.github.Arantik</groupId>
 	<artifactId>Notifier</artifactId>
