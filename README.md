@@ -6,6 +6,8 @@ Notifier is an Android library for showing default or custom message blocks. You
 
 ## Installation
 
+### Gradle
+
 In build.gradle(project):
 
 ```bash
@@ -21,6 +23,24 @@ In build.gradle(app):
 
 ```bash
 implementation 'com.github.Arantik:Notifier:1.0.0'
+```
+### Maven
+
+```bash
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+
+```bash
+	<dependency>
+	    <groupId>com.github.Arantik</groupId>
+	    <artifactId>Notifier</artifactId>
+	    <version>1.0.2</version>
+	</dependency>
 ```
 
 ## Usage
