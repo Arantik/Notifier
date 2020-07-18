@@ -123,26 +123,46 @@ public class NotifierDialog extends Dialog
         TextView titleTextView = inflatedLayout.findViewById(R.id.titleTextView);
         titleTextView.setTypeface(typeface);
         titleTextView.setText(defaultTitle);
-        int color = Color.parseColor("#000000");
-        if (defaultTitleColor != 0)
-        {
-            // title color has set.
-            color = ResourcesCompat.getColor(context.getResources(), defaultTitleColor, null);
-        }
-        titleTextView.setTextColor(color);
         titleTextView.setTextSize(defaultTitleSizeSp);
+        if (defaultTitleColor == 0)
+        {
+            titleTextView.setTextColor(Color.parseColor("#FFFFFF"));  // default color
+        }
+        else
+        {
+            try
+            {
+                int color = ResourcesCompat.getColor(context.getResources(), defaultTitleColor, null);
+                titleTextView.setTextColor(color);
+            }
+            catch (Exception e)
+            {
+                String colorHex = Integer.toHexString(defaultTitleColor);
+                titleTextView.setTextColor(Color.parseColor("#" + colorHex));
+            }
+        }
 
         TextView descriptionTextView = inflatedLayout.findViewById(R.id.descriptionTextView);
         descriptionTextView.setTypeface(typeface);
         descriptionTextView.setText(defaultDescription);
-        color = Color.parseColor("#000000");
-        if (defaultDescriptionColor != 0)
-        {
-            // description color has set.
-            color = ResourcesCompat.getColor(context.getResources(), defaultDescriptionColor, null);
-        }
-        descriptionTextView.setTextColor(color);
         descriptionTextView.setTextSize(defaultDescriptionSizeSp);
+        if (defaultDescriptionColor == 0)
+        {
+            descriptionTextView.setTextColor(Color.parseColor("#FFFFFF"));  // default color
+        }
+        else
+        {
+            try
+            {
+                int color = ResourcesCompat.getColor(context.getResources(), defaultDescriptionColor, null);
+                descriptionTextView.setTextColor(color);
+            }
+            catch (Exception e)
+            {
+                String colorHex = Integer.toHexString(defaultDescriptionColor);
+                descriptionTextView.setTextColor(Color.parseColor("#" + colorHex));
+            }
+        }
     }
 
     // insert custom layout inside container layout of notifier dialog. mainLayout is the parent layout of container layout:
@@ -182,23 +202,45 @@ public class NotifierDialog extends Dialog
         }
 
         // set background color:
-        int color = Color.parseColor("#FFFFFF");
-        if (backgroundColor != 0)
+        if (backgroundColor == 0)
         {
-            // background color has set.
-            color = ResourcesCompat.getColor(context.getResources(), backgroundColor, null);
+            shape.setColor(Color.parseColor("#009999"));  // default color
         }
-        shape.setColor(color);
+        else
+        {
+            try
+            {
+                int color = ResourcesCompat.getColor(context.getResources(), backgroundColor, null);
+                shape.setColor(color);
+            }
+            catch (Exception e)
+            {
+                String colorHex = Integer.toHexString(backgroundColor);
+                shape.setColor(Color.parseColor("#" + colorHex));
+            }
+        }
 
         // set stroke color and width:
-        color = Color.parseColor("#FF0000");
-        if (strokeColor != 0)
+        if (strokeColor == 0)
         {
-            // stroke color has set.
-            color = ResourcesCompat.getColor(context.getResources(), strokeColor, null);
+            shape.setStroke((int) dpToPx(strokeWidthDp), Color.parseColor("#FF0000"));  // default color
         }
-        shape.setStroke((int) dpToPx(strokeWidthDp), color);
+        else
+        {
+            try
+            {
+                int color = ResourcesCompat.getColor(context.getResources(), strokeColor, null);
+                shape.setStroke((int) dpToPx(strokeWidthDp), color);
+            }
+            catch (Exception e)
+            {
+                String colorHex = Integer.toHexString(strokeColor);
+                shape.setStroke((int) dpToPx(strokeWidthDp), Color.parseColor("#" + colorHex));
+            }
+        }
+
         mainLayout.setBackground(shape);
+
     }
 
     // set dialog window properties:
