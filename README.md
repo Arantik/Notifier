@@ -22,7 +22,7 @@ allprojects {
 In build.gradle(app):
 
 ```bash
-implementation 'com.github.Arantik:Notifier:1.0.0'
+implementation 'com.github.Arantik:Notifier:1.0.3'
 ```
 ### Maven
 
@@ -39,7 +39,7 @@ implementation 'com.github.Arantik:Notifier:1.0.0'
 <dependency>
 	<groupId>com.github.Arantik</groupId>
 	<artifactId>Notifier</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 </dependency>
 ```
 
