@@ -25,136 +25,138 @@ public class MainActivity extends AppCompatActivity
 
     private void showDefaultTopNotifier()
     {
-        new Notifier.Build(MainActivity.this)
-                .setPosition(Gravity.TOP)
-                .setCornerRadius(20)
-                .setBackgroundColor(R.color.green)
-                .setTypeface(font)
-                .setImage(R.drawable.ic_bell)
-                .setTitle("This is title!")
-                .setTitleColor(R.color.white)
-                .setTitleSizeSp(18)
-                .setDescription("This is description!")
-                .setDescriptionColor(R.color.white)
-                .setDescriptionSizeSp(16)
-                .setDuration(5000)
-                .setEnableAutoDismiss(true)
-                .setEnableDimBackground(false)
-                .setOnNotifierDismissListener(() ->
-                {
-                    // do something when notifier dismissed
-                })
-                .show();
+        Notifier notifier = new Notifier(MainActivity.this);
+        notifier.setPosition(Gravity.TOP);
+        notifier.setCornerRadius(20);
+        notifier.setBackgroundColor(R.color.green);
+        notifier.setTypeface(font);
+        notifier.setImageIcon(R.drawable.ic_bell);
+        notifier.setTitle("This is title!");
+        notifier.setTitleColor(R.color.white);
+        notifier.setTitleSize(18);
+        notifier.setDescription("This is description!");
+        notifier.setDescriptionColor(R.color.white);
+        notifier.setDescriptionSize(16);
+        notifier.setDuration(5000);
+        notifier.setEnableAutoDismiss(true);
+        notifier.setEnableDimBackground(false);
+        notifier.setOnNotifierDismissListener(() ->
+        {
+            //
+        });
+        notifier.show();
     }
 
     private void showDefaultBottomNotifier()
     {
-        new Notifier.Build(MainActivity.this)
-                .setPosition(Gravity.BOTTOM)
-                .setCornerRadius(20)
-                .setBackgroundColor(R.color.green)
-                .setTypeface(font)
-                .setImage(R.drawable.ic_bell)
-                .setTitle("This is title!")
-                .setTitleColor(R.color.white)
-                .setTitleSizeSp(18)
-                .setDescription("This is description!")
-                .setDescriptionColor(R.color.white)
-                .setDescriptionSizeSp(16)
-                .setDuration(5000)
-                .setEnableAutoDismiss(true)
-                .setEnableDimBackground(false)
-                .setOnNotifierDismissListener(() ->
-                {
-                    // do something when notifier dismissed
-                })
-                .show();
+        Notifier notifier = new Notifier(MainActivity.this);
+        notifier.setPosition(Gravity.BOTTOM);
+        notifier.setCornerRadius(20);
+        notifier.setBackgroundColor(R.color.green);
+        notifier.setTypeface(font);
+        notifier.setImageIcon(R.drawable.ic_bell);
+        notifier.setTitle("This is title!");
+        notifier.setTitleColor(R.color.white);
+        notifier.setTitleSize(18);
+        notifier.setDescription("This is description!");
+        notifier.setDescriptionColor(R.color.white);
+        notifier.setDescriptionSize(16);
+        notifier.setDuration(5000);
+        notifier.setEnableAutoDismiss(true);
+        notifier.setEnableDimBackground(false);
+        notifier.setOnNotifierDismissListener(() ->
+        {
+            //
+        });
+        notifier.show();
     }
 
     private void showDefaultTopNotifierWithDim()
     {
-        new Notifier.Build(MainActivity.this)
-                .setPosition(Gravity.TOP)
-                .setCornerRadius(20)
-                .setBackgroundColor(R.color.green)
-                .setTypeface(font)
-                .setImage(R.drawable.ic_bell)
-                .setTitle("This is title!")
-                .setTitleColor(R.color.white)
-                .setTitleSizeSp(18)
-                .setDescription("This is description!")
-                .setDescriptionColor(R.color.white)
-                .setDescriptionSizeSp(16)
-                .setDuration(5000)
-                .setEnableAutoDismiss(true)
-                .setEnableDimBackground(true)
-                .setOnNotifierDismissListener(() ->
-                {
-                    // do something when notifier dismissed
-                })
-                .show();
+        Notifier notifier = new Notifier(MainActivity.this);
+        notifier.setPosition(Gravity.TOP);
+        notifier.setCornerRadius(20);
+        notifier.setBackgroundColor(R.color.green);
+        notifier.setTypeface(font);
+        notifier.setImageIcon(R.drawable.ic_bell);
+        notifier.setTitle("This is title!");
+        notifier.setTitleColor(R.color.white);
+        notifier.setTitleSize(18);
+        notifier.setDescription("This is description!");
+        notifier.setDescriptionColor(R.color.white);
+        notifier.setDescriptionSize(16);
+        notifier.setDuration(5000);
+        notifier.setEnableAutoDismiss(true);
+        notifier.setEnableDimBackground(true);
+        notifier.setOnNotifierDismissListener(() ->
+        {
+            //
+        });
+        notifier.show();
     }
 
     private void showCustomTopNotifier()
     {
-        new Notifier.Build(MainActivity.this)
-                .setPosition(Gravity.TOP)
-                .setCustomLayout(R.layout.notifier_custom_layout)
-                .setCornerRadius(20)
-                .setBackgroundColor(R.color.blue)
-                .setCustomLayoutInitializer(view ->
-                {
-                    TextView textView = view.findViewById(R.id.textView);
-                    textView.setText("This is my custom title.");
-                    textView.setTypeface(font);
-                    textView.setTextColor(getResources().getColor(R.color.white));
+        Notifier notifier = new Notifier(MainActivity.this);
+        notifier.setPosition(Gravity.TOP);
+        notifier.setCustomLayout(R.layout.notifier_custom_layout);
+        notifier.setCornerRadius(20);
+        notifier.setBackgroundColor(R.color.blue);
+        notifier.setOnCustomLayoutInitializer(view ->
+        {
+            TextView textView = view.findViewById(R.id.textView);
+            textView.setText("This is my custom title.");
+            textView.setTypeface(font);
+            textView.setTextColor(getResources().getColor(R.color.white));
 
-                    Button button = view.findViewById(R.id.button);
-                    button.setOnClickListener(v ->
-                    {
-                        // do something when click on button
-                    });
-                })
-                .setTypeface(font)
-                .setDuration(5000)
-                .setEnableAutoDismiss(true)
-                .setEnableDimBackground(false)
-                .setOnNotifierDismissListener(() ->
-                {
-                    // do something when notifier dismissed
-                })
-                .show();
+            Button button = view.findViewById(R.id.button);
+            button.setOnClickListener(v ->
+            {
+                // do something when click on button
+                notifier.dismiss();
+            });
+        });
+        notifier.setTypeface(font);
+        notifier.setDuration(5000);
+        notifier.setEnableAutoDismiss(true);
+        notifier.setEnableDimBackground(false);
+        notifier.setOnNotifierDismissListener(() ->
+        {
+            //
+        });
+        notifier.show();
     }
 
     private void showCustomBottomNotifier()
     {
-        new Notifier.Build(MainActivity.this)
-                .setPosition(Gravity.BOTTOM)
-                .setCustomLayout(R.layout.notifier_custom_layout)
-                .setCornerRadius(20)
-                .setBackgroundColor(R.color.violet)
-                .setCustomLayoutInitializer(view ->
-                {
-                    TextView textView = view.findViewById(R.id.textView);
-                    textView.setText("This is my custom title.");
-                    textView.setTypeface(font);
-                    textView.setTextColor(getResources().getColor(R.color.white));
+        Notifier notifier = new Notifier(MainActivity.this);
+        notifier.setPosition(Gravity.BOTTOM);
+        notifier.setCustomLayout(R.layout.notifier_custom_layout);
+        notifier.setCornerRadius(20);
+        notifier.setBackgroundColor(R.color.violet);
+        notifier.setOnCustomLayoutInitializer(view ->
+        {
+            TextView textView = view.findViewById(R.id.textView);
+            textView.setText("This is my custom title.");
+            textView.setTypeface(font);
+            textView.setTextColor(getResources().getColor(R.color.white));
 
-                    Button button = view.findViewById(R.id.button);
-                    button.setOnClickListener(v ->
-                    {
-                        // do something when click on button
-                    });
-                })
-                .setTypeface(font)
-                .setDuration(5000)
-                .setEnableAutoDismiss(true)
-                .setEnableDimBackground(false)
-                .setOnNotifierDismissListener(() ->
-                {
-                    // do something when notifier dismissed
-                })
-                .show();
+            Button button = view.findViewById(R.id.button);
+            button.setOnClickListener(v ->
+            {
+                // do something when click on button
+                notifier.dismiss();
+            });
+        });
+        notifier.setTypeface(font);
+        notifier.setDuration(5000);
+        notifier.setEnableAutoDismiss(true);
+        notifier.setEnableDimBackground(false);
+        notifier.setOnNotifierDismissListener(() ->
+        {
+            //
+        });
+        notifier.show();
     }
 
     private void initialize()
