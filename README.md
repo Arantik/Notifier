@@ -22,7 +22,7 @@ allprojects {
 In build.gradle(app):
 
 ```bash
-implementation 'com.github.Arantik:Notifier:1.0.3'
+implementation 'com.github.Arantik:Notifier:1.0.4'
 ```
 ### Maven
 
@@ -39,7 +39,7 @@ implementation 'com.github.Arantik:Notifier:1.0.3'
 <dependency>
 	<groupId>com.github.Arantik</groupId>
 	<artifactId>Notifier</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 </dependency>
 ```
 
@@ -48,58 +48,59 @@ implementation 'com.github.Arantik:Notifier:1.0.3'
 Show a default notifier:
 
 ```java
-new Notifier.Build(MainActivity.this)
-            .setPosition(Gravity.TOP)
-            .setCornerRadius(20)
-            .setBackgroundColor(R.color.green)
-            .setTypeface(font)
-            .setImage(R.drawable.ic_bell)
-            .setTitle("This is title!")
-            .setTitleColor(R.color.white)
-            .setTitleSizeSp(18)
-            .setDescription("This is description!")
-            .setDescriptionColor(R.color.white)
-            .setDescriptionSizeSp(16)
-            .setDuration(5000)
-            .setEnableAutoDismiss(true)
-            .setEnableDimBackground(false)
-            .setOnNotifierDismissListener(() ->
-            {
-                // do something when notifier dismissed
-            })
-            .show();
+Notifier notifier = new Notifier(MainActivity.this);
+notifier.setPosition(Gravity.TOP);
+notifier.setCornerRadius(20);
+notifier.setBackgroundColor(R.color.green);
+notifier.setTypeface(font);
+notifier.setImageIcon(R.drawable.ic_bell);
+notifier.setTitle("This is title!");
+notifier.setTitleColor(R.color.white);
+notifier.setTitleSize(18);
+notifier.setDescription("This is description!");
+notifier.setDescriptionColor(R.color.white);
+notifier.setDescriptionSize(16);
+notifier.setDuration(5000);
+notifier.setEnableAutoDismiss(true);
+notifier.setEnableDimBackground(true);
+notifier.setOnNotifierDismissListener(() ->
+{
+    //
+});
+notifier.show();
 ```
 
 Show a custom notifier:
 
 ```java
-new Notifier.Build(MainActivity.this)
-            .setPosition(Gravity.TOP)
-            .setCustomLayout(R.layout.notifier_custom_layout)
-            .setCornerRadius(20)
-            .setBackgroundColor(R.color.blue)
-            .setCustomLayoutInitializer(view ->
-            {
-                TextView textView = view.findViewById(R.id.textView);
-                textView.setText("This is my custom title.");
-                textView.setTypeface(font);
-                textView.setTextColor(getResources().getColor(R.color.white));
+Notifier notifier = new Notifier(MainActivity.this);
+notifier.setPosition(Gravity.TOP);
+notifier.setCustomLayout(R.layout.notifier_custom_layout);
+notifier.setCornerRadius(20);
+notifier.setBackgroundColor(R.color.blue);
+notifier.setOnCustomLayoutInitializer(view ->
+{
+    TextView textView = view.findViewById(R.id.textView);
+    textView.setText("This is my custom title.");
+    textView.setTypeface(font);
+    textView.setTextColor(getResources().getColor(R.color.white));
 
-                Button button = view.findViewById(R.id.button);
-                button.setOnClickListener(v ->
-                {
-                    // do something when click on button
-                });
-            })
-            .setTypeface(font)
-            .setDuration(5000)
-            .setEnableAutoDismiss(true)
-            .setEnableDimBackground(false)
-            .setOnNotifierDismissListener(() ->
-            {
-                // do something when notifier dismissed
-            })
-            .show();
+    Button button = view.findViewById(R.id.button);
+    button.setOnClickListener(v ->
+    {
+        // do something when click on button
+        notifier.dismiss();
+    });
+});
+notifier.setTypeface(font);
+notifier.setDuration(5000);
+notifier.setEnableAutoDismiss(true);
+notifier.setEnableDimBackground(false);
+notifier.setOnNotifierDismissListener(() ->
+{
+    //
+});
+notifier.show();
 ```
 
 ## Details:
@@ -110,7 +111,7 @@ new Notifier.Build(MainActivity.this)
 |setCornerRadius(int radius)|radius of top/bottom corners, in dp.|
 |setBackgroundColor(int color)|notifier's background color|
 |setStrokeColor(int color)|notifier's stroke color|
-|setStrokeWidthDp(int width)|notifier's stroke width in dp|
+|setStrokeWidth(int width)|notifier's stroke width in dp|
 |setCustomLayout(int customLayout)|set a custom xml file to notifier|
 |setCustomLayoutInitializer(onCustomLayoutInitializer)|here you can initialize all views in your custom layout|
 |setOnNotifierDismissListener(onNotifierDismissListener)|define what happens when notifier dismissed|
@@ -118,12 +119,12 @@ new Notifier.Build(MainActivity.this)
 |setEnableAutoDismiss(boolean enable)|control notifier dismiss automatically after duration is over|
 |setTypeface(Typeface font)|set custom typeface to notifier's texts|
 |setTitle(String title)|set notifier's title (just for default notifiers)|
-|setTitleSizeSp(int size)|set notifier's title size in sp (just for default notifiers)|
+|setTitleSize(int size)|set notifier's title size in sp (just for default notifiers)|
 |setTitleColor(int color)|set notifier's title color (just for default notifiers)|
 |setDescription(String description)|set notifier's description (just for default notifiers)|
-|setDescriptionSizeSp(int size)|set notifier's description size in sp (just for default notifiers)|
+|setDescriptionSize(int size)|set notifier's description size in sp (just for default notifiers)|
 |setDescriptionColor(int color)|set notifier's description color (just for default notifiers)|
-|setImage(int image)|set notifier's image icon drawable (just for default notifiers)|
+|setImageIcon(int image)|set notifier's image icon drawable (just for default notifiers)|
 |setEnableDimBackground(boolean enable)|control dimming background when notifier appears|
 
 ## Author
